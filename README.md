@@ -6,7 +6,7 @@ One of the great features provided by Pipes package is the ability to utilize mo
 
 Here is an example fro the [link above](https://github.com/snoyberg/conduit/wiki/Dealing-with-monad-transformers) demonstrating the problem with running the state transformer in an isolate section of conduit.
 
-``` active haskell
+``` haskell
 {-# LANGUAGE OverloadedStrings #-}
 import Data.Conduit
 import qualified Data.Conduit.List as CL
