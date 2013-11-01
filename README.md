@@ -63,3 +63,5 @@ This has several advantages:
 This technique will work for any monad transformer you can write a [`MFunctor`](http://hackage.haskell.org/package/mmorph-1.0.0/docs/Control-Monad-Morph.html#t:MFunctor) instance for.
 
 I hope this makes it easier to include your favorite monad transformer in your Conduit code or vs versa.
+
+You can read a rough outline of how the technique works [here](https://www.fpcomplete.com/user/davorak/nearly-effortless-monad-transformers-for-pipes-conduit-and-more-1).
