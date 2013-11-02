@@ -4,6 +4,12 @@ The circumvents many of the problems with breaking the monad transformer laws.
 Read more about when the monad transformer laws are broken:
 <https://github.com/snoyberg/conduit/wiki/Dealing-with-monad-transformers>
 
+This method has a considerable number of advantages over the other two 
+recommended methods.
+
+* Run the monad transformer outisde of the conduit
+* Use a mutable varible inside a readerT to retain side effects.
+
 This functionality has existed for awhile in the pipes ecosystem and my recent
 improvement to the Pipes.Lift module has allowed it to almost mechanically 
 translated for conduit.
