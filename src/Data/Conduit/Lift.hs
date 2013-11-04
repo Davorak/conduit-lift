@@ -48,7 +48,9 @@ module Data.Conduit.Lift (
     rwsC,
     runRWSC,
     evalRWSC,
-    execRWSC
+    execRWSC,
+
+    distribute
     ) where
 
 import Data.Conduit

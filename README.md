@@ -1,10 +1,10 @@
 View at [FPcomplete School of Haskell.](https://www.fpcomplete.com/user/davorak/readme-for-data-conduit-lift)
 
-One of the great features provided by Pipes package is the ability to utilize monad transformers in isolated sections of a pipeline. Conduit historically has not had this advantage because it did not quite [follow the monad transformer laws.](https://github.com/snoyberg/conduit/wiki/Dealing-with-monad-transformers).
+One of the great features provided by Pipes package is the ability to utilize monad transformers in isolated sections of a pipeline. Conduit historically has not had this advantage because it did not quite [follow the monad transformer laws.](https://github.com/snoyberg/conduit/wiki/Dealing-with-monad-transformers)
 
 `Data.Conduit.Lift` gives a method to get around this limitation so that Conduit can utilize monad transformers in isolate sections of conduit much like the `Pipes.Lift` module provides for Pipes. It is also a rather mechanical translation of the work I recently provided for `Pipes.Lift`.  The technique seems to be quite general and applies to both Pipes, Conduit and probably other streaming systems as well.
 
-Here is an example fro the [link above](https://github.com/snoyberg/conduit/wiki/Dealing-with-monad-transformers) demonstrating the problem with running the state transformer in an isolate section of conduit.
+Here is an example from the [link above](https://github.com/snoyberg/conduit/wiki/Dealing-with-monad-transformers) demonstrating the problem with running the state transformer in an isolate section of conduit.
 
 ``` haskell
 {-# LANGUAGE OverloadedStrings #-}
@@ -30,6 +30,10 @@ main = do
     y <- flip evalStateT 1
        $ transPipe lift source $$ replaceNum =$ CL.consume
     print y
+
+> main
+[1,1,1,1,1,1,1,1,1,1]
+[1,2,3,4,5,6,7,8,9,10]
 ```
 
 `Data.Conduit.Lift` provides evalStateC to handle this evaluating the state transformer locally rather then globally along the entire conduit:
