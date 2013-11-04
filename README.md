@@ -53,7 +53,7 @@ This has several advantages:
 
 * Conduit sections that need to eval a state transform can be implemented and used with out having to worry about adding an evalStateT outside the conduit
 * Monad transformers can be isolated to only where they are needed. If you need state it no longer needs to be global to the entire conduit.
-* 
+* You can avoid using a mutable varible in `ReaderT`, which is one of the current recomened work arounds. 
 
 
 `Data.Conduit.Lift` implements functionality for the:
